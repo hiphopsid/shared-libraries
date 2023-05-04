@@ -7,13 +7,11 @@ def call(branch,ssh){
 //   echo "${image}"
 // }
 
-def buildImage(image) {
+def buildImage(String image, String tag) {
    withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'docker_user', passwordVariable: 'docker_pass')]) {
-     sh """
-     docker login -u "${docker_user}" "${docker_pass}"
-     """
-     echo "${docker_user}"
-     echo "${image}"
+    sh """
+    docker pull ${image}:${tag}
+    """
 //      sh "docker build -t ${image} ."
 //      sh "docker login -u ${docker_user} -p ${docker_pass}"
 //    sh "docker push ${image}"
