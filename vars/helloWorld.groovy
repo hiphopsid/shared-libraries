@@ -9,7 +9,7 @@ def call(branch,ssh){
 
 def buildImage(String image, String tag) {
    withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'docker_user', passwordVariable: 'docker_pass')]) {
-    sh """
+    bat """
     docker pull ${image}:${tag}
     """
 //      sh "docker build -t ${image} ."
