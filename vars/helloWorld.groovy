@@ -22,7 +22,9 @@ def buildImage(String image) {
 def deployment(){
 //     withKubeConfig(credentialsId: 'kubeconfig', namespace: '') {
 //      bat 'kubectl apply -f Deployment-beta.yaml'
+        bat 'kubectl config use-context minikube'
         bat 'kubectl version'
+       bat 'kubectl apply -f Deployment-beta.yaml'
     
 }
 
