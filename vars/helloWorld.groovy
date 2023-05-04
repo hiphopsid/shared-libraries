@@ -3,7 +3,5 @@
 // userRemoteConfigs: [[credentialsId: 'admingithub', url: '${ssh}']]])
 // }
 def call(m){
- script{
-  sh '''echo "hello ${m} world"'''
- }
+  echo "hello ${m} world"
 }
