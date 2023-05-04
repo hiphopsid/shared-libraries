@@ -8,4 +8,5 @@ def buildImage(image) {
    sh 'docker build -t image .'
    sh 'docker push image'
 }
+}
 
