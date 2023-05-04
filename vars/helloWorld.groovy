@@ -10,7 +10,7 @@ def call(branch,ssh){
 def buildImage(String image) {
    withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'docker_user', passwordVariable: 'docker_pass')]) {
     bat """
-    eval $(minikube docker-env)
+    minikube docker-env | Invoke-Expression
     docker login -u ${docker_user} -p ${docker_pass}"
     docker build -t ${image} .
     """
