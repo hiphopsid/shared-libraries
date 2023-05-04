@@ -12,8 +12,8 @@ def buildImage(String image) {
     bat """
     minikube docker-env
     docker login -u ${docker_user} -p ${docker_pass}"
-    docker build -t ${image} .
     """
+     echo "${image}"
 //      sh "docker build -t ${image} ."
 //      sh "docker login -u ${docker_user} -p ${docker_pass}"
 //    sh "docker push ${image}"
