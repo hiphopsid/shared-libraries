@@ -18,5 +18,10 @@ def buildImage(String image) {
 //    sh "docker push ${image}"
 }
 }
+def deployment(){
+    withKubeConfig(credentialsId: 'kubeconfig', namespace: '') {
+     bat 'kubectl apply -f Deployment.yaml'
+    }
+}
 
 
