@@ -12,7 +12,7 @@ def buildImage(image) {
      sh """
       docker login -u ${docker_user} -p ${docker_pass}
       docker build -t ${image} .
-      docker push "${image}"
+      docker push ${image}
    """
 //      sh "docker build -t ${image} ."
 //      sh "docker login -u ${docker_user} -p ${docker_pass}"
