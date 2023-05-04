@@ -8,7 +8,7 @@ def call(branch,ssh){
 // }
 
 def buildImage(image) {
-   withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'docker_pass', usernameVariable: 'docker_user')]) {
+   withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'docker_user', passwordVariable: 'docker_pass')]) {
      sh """
       docker build -t "${image}" .
       """
