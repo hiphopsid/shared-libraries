@@ -3,7 +3,7 @@ def call(branch,ssh){
             userRemoteConfigs: [[credentialsId: 'b4f7364e-adde-475e-b024-2d20667e0987', url: ssh ]]])
 }
 
-def sayHello(name) {
-    println "Hello, ${name}!"
+def first(name) {
+    echo "Hello, ${name}!"
 }
 
