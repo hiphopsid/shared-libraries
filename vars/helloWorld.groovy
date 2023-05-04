@@ -6,6 +6,7 @@ def call(branch,ssh){
 def buildImage(image) {
    withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'docker_pass', usernameVariable: 'docker_user')]) {
    sh 'docker build -t image .'
+   sh 'docker login -u $docker_user -p $docker_pass'
    sh 'docker push image'
 }
 }
