@@ -23,7 +23,7 @@ def deployment(){
 //     withKubeConfig(credentialsId: 'kubeconfig', namespace: '') {
 //      bat 'kubectl apply -f Deployment-beta.yaml'
         bat 'kubectl version'
-    }
+    
 }
 
 
