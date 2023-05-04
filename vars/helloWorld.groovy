@@ -4,6 +4,6 @@
 // }
 def call(branch,ssh){
   checkout([$class: 'GitSCM', branches: [[name: '*/${branch}']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg:  [], \
-            userRemoteConfigs: [[credentialsId: 'admingithub', url: '${ssh}']]])
+            userRemoteConfigs: [[credentialsId: 'jenkins-git', url: '${ssh}']]])
 }
 
