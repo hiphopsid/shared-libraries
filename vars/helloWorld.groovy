@@ -4,7 +4,7 @@ def call(branch,ssh){
 }
 
 def build(image) {
-  sh "echo ${image}"
+  echo ${image}
 }
 
 
