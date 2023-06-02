@@ -21,7 +21,7 @@ def buildImage(String image) {
 }
 def deployment(){
      withKubeConfig(credentialsId: 'new-kubeconfig', namespace: '') {
-      bat 'kubectl get pods -n dev'
+      bat 'kubectl apply -f Deployment-beta.yaml -n dev'
     }
 }
 
