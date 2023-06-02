@@ -10,9 +10,9 @@ def call(branch,ssh){
 def buildImage(String image) {
    withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'docker_user', passwordVariable: 'docker_pass')]) {
     bat """
-    minikube docker-env
+    docker image build -f Dockerfile -t my-app-image .
     docker login -u ${docker_user} -p ${docker_pass}"
-    docker build -t ${image} .
+    docker push hiphopsid/todo-app
     """
      echo "${image}"
 //      sh "docker build -t ${image} ."
