@@ -1,6 +1,6 @@
-def call(branch,ssh){
-  checkout([$class: 'GitSCM', branches: [[name: branch ]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg:  [], \
-            userRemoteConfigs: [[credentialsId: 'hiphopsid', url: ssh ]]])
+def call(Map config = [:]){
+  checkout([$class: 'GitSCM', branches: [[name: */${config.name} ]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg:  [], \
+            userRemoteConfigs: [[credentialsId: 'hiphopsid', url: ${config.ssh} ]]])
 }
 
 // def buildImage(image) {
