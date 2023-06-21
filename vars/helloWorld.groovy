@@ -1,4 +1,4 @@
-def call(Map config = [:]){
+def call(Map config){
   checkout([$class: 'GitSCM', branches: [[name: config.name ]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg:  [], \
             userRemoteConfigs: [[credentialsId: 'jenkins', url: config.ssh ]]])
 }
