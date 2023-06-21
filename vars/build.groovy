@@ -1,4 +1,4 @@
-def buildImage(String image) {
+def call(String image) {
    // withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'docker_user', passwordVariable: 'docker_pass')]) {
     bat """
     docker image build -f Dockerfile -t ${image} .
