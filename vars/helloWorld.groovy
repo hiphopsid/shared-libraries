@@ -1,6 +1,6 @@
-def call(Map config){
-  checkout([$class: 'GitSCM', branches: [[name: config.name ]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg:  [], \
-            userRemoteConfigs: [[credentialsId: 'jenkins', url: config.ssh ]]])
+def call(String name, String ssh){
+  checkout([$class: 'GitSCM', branches: [[name: name ]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg:  [], \
+            userRemoteConfigs: [[credentialsId: 'jenkins', url: ssh ]]])
 }
 
 // def buildImage(image) {
