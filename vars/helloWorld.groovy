@@ -19,8 +19,10 @@ def readVariables(String fileName)
   {
     props = readYaml file: "${fileName}"
   }
-  else if (fileName.endsWith(".env")) {
+  else if (fileName.endsWith(".env")) 
+  {
     def fileLines = Files.readAllLines(Path.get(fileName))
+    println 'fileName lines are' + fileLines
     fileLines.each { line ->
       // Skip empty lines or lines starting with #
       if (line.trim().isEmpty() || line.startsWith("#")) {
