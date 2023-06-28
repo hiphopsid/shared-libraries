@@ -3,6 +3,27 @@ def call(String name, String ssh){
             userRemoteConfigs: [[credentialsId: 'jenkins', url: ssh ]]])
 }
 
+
+def readVariables(String fileName)
+{
+  println("Reading Variables...")
+  if(fileName.contains(".properties"))
+  {
+    props = readProperties file: "${fileName}"
+  }
+
+  else if(fileName.contains(".yaml"))
+  {
+    props = readYaml file: "${fileName}"
+  }
+  else
+  {
+    error("File for storing SDP properties must end in .properties or .yaml. The filename is: " + "${fileName}")
+  }
+  println 'Properties pased in are: ' + props
+  return props
+}
+
 // def buildImage(image) {
 //   echo "${image}"
 // }
