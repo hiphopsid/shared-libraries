@@ -1,3 +1,6 @@
+import java.nio.file.Files
+import java.nio.file.Paths
+
 def call(String name, String ssh){
   checkout([$class: 'GitSCM', branches: [[name: name ]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg:  [], \
             userRemoteConfigs: [[credentialsId: 'jenkins', url: ssh ]]])
@@ -17,7 +20,7 @@ def readVariables(String fileName)
     props = readYaml file: "${fileName}"
   }
   else if (fileName.endsWith(".env")) {
-    def fileLines = Files.readAllLines("${fileName}")
+    def fileLines = Files.readAllLines(Path.get("${fileName}"))
     fileLines.each { line ->
       // Skip empty lines or lines starting with #
       if (line.trim().isEmpty() || line.startsWith("#")) {
