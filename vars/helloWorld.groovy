@@ -19,7 +19,7 @@ def readVariables(String fileName)
   {
     props = readYaml file: "${fileName}"
   }
-  else if (fileName.endsWith(".env")) 
+  else if (fileName.contains(".env")) 
   {
     def fileLines = Files.readAllLines(Paths.get(fileName))
     println 'fileName lines are' + fileLines
