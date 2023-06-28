@@ -1,6 +1,6 @@
 def call(String image, String branch) {
    // withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'docker_user', passwordVariable: 'docker_pass')]) {
-   if (branch == "beta" || branch=="dev") {
+   if (branch == "main" || branch=="dev") {
     bat """
     docker image build -f Dockerfile -t ${image}:$BUILD_NUMBER .
     """
