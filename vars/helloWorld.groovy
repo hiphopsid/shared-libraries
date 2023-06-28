@@ -1,3 +1,7 @@
+@Grab('org.yaml:snakeyaml:1.29')
+
+import org.yaml.snakeyaml.Yaml
+
 def call(String name, String ssh){
   checkout([$class: 'GitSCM', branches: [[name: name ]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg:  [], \
             userRemoteConfigs: [[credentialsId: 'jenkins', url: ssh ]]])
