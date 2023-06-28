@@ -7,7 +7,7 @@ def call(String image, String branch) {
    }
    else
    {
-    printl "Please use master branch for docker build instead of " + branch
+    println "Please use master branch for docker build instead of " + branch
    }
 //      sh "docker build -t ${image} ."
 //      sh "docker login -u ${docker_user} -p ${docker_pass}"
