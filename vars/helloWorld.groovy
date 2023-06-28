@@ -20,10 +20,6 @@ def readVariables(String fileName)
   {
     props = readYaml file: "${fileName}"
   }
-  else if(fileName.contains(".env"))
-  {
-    props = readEnv file: "${fileName}"
-  }
   else
   {
     error("File for storing SDP properties must end in .properties or .yaml. The filename is: " + "${fileName}")
