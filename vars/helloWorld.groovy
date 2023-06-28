@@ -21,7 +21,7 @@ def readVariables(String fileName)
   }
   else if (fileName.endsWith(".env")) 
   {
-    def fileLines = Files.readAllLines(fileName)
+    def fileLines = Files.readAllLines(Paths.get(fileName))
     println 'fileName lines are' + fileLines
     fileLines.each { line ->
       // Skip empty lines or lines starting with #
