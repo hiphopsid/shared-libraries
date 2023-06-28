@@ -1,7 +1,3 @@
-@Grab('org.yaml:snakeyaml:1.29')
-
-import org.yaml.snakeyaml.Yaml
-
 def call(String name, String ssh){
   checkout([$class: 'GitSCM', branches: [[name: name ]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg:  [], \
             userRemoteConfigs: [[credentialsId: 'jenkins', url: ssh ]]])
@@ -20,6 +16,22 @@ def readVariables(String fileName)
   {
     props = readYaml file: "${fileName}"
   }
+  else if (fileName.endsWith(".env")) {
+    def fileLines = Files.readAllLines(Paths.get(fileName))
+    fileLines.each { line ->
+      // Skip empty lines or lines starting with #
+      if (line.trim().isEmpty() || line.startsWith("#")) {
+        return
+      }
+
+      def parts = line.split("=")
+      if (parts.size() == 2) {
+        def key = parts[0].trim()
+        def value = parts[1].trim()
+        props[key] = value
+      }
+    }
+  } 
   else
   {
     error("File for storing SDP properties must end in .properties or .yaml. The filename is: " + "${fileName}")
